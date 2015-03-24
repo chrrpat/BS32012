@@ -1,0 +1,31 @@
+CREATE TABLE gene (
+geneid varchar(255) not null  primary key,
+genename varchar(255) not null,
+genedes varchar(255) 
+);
+	
+describe gene;
+
+LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/genes2.txt' INTO TABLE gene 
+IGNORE 1 LINES
+(geneid, genename, genedes);
+
+CREATE TABLE probes (
+gene varchar(255) not null,
+FOREIGN KEY (gene) REFERENCES gene(geneid),
+ID_ref integer not null
+);
+
+LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/probes2.txt' INTO TABLE probes  (@acc, ID_REF,gene) ;
+	
+
+CREATE TABLE expression (
+sampleid varchar(30) not null,
+ID_ref integer not null,
+FOREIGN KEY (ID_ref) REFERENCES probes(ID_ref),
+expression real not null
+);
+
+LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/expression.txt' INTO TABLE expression  (@acc, expression,ID_ref) ;
+
+
