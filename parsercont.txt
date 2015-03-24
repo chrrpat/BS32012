@@ -2,9 +2,11 @@
 #!/usr/bin/python
 # step 1. open the data file
 cd Project
-opendata = open("GSE27875_family.soft")
-datacontents =  opendata.read()
-print(datacontents)
+fh = open("GSE27875_family.soft")
 #step 2. read the first line and then read more lines while the line doesn't match a specific pattern
-while :
+line = fh.readline()
+while line:
+  print line
+  line = fh.readine()
+f.close()
 
