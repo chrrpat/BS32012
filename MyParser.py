@@ -32,7 +32,7 @@ samples=header.split('\t')[2:int(colnames['Gene title'])]
 probefields=['ID_REF','Gene ID']
 
 def buildrow(row, fields):
-         '''Docstring'''
+   '''Docstring'''
    newrow=[]
    for f in fields:
       newrow.append(row[int(colnames[f])])
@@ -41,7 +41,7 @@ def buildrow(row, fields):
 
 #creates the rows for the expression file, is slightly different because for each probe and experiment there are several gene expression values.
 def build_expression(row, samples):
-         '''Docstring'''
+   '''Docstring'''
    exprrows=[]
    for s in samples:
       newrow=[s,]
