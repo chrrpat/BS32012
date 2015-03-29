@@ -22,9 +22,9 @@ for title in header.split('\t'):
 
 #open our output files, one per table.
 
-genefile=open('genes.txt', 'w')
-expressionfile=open('expression.txt','w')
-probefile=open('probes.txt', 'w')
+genefile=open('genesNEW.txt', 'w')
+expressionfile=open('expressionNEW.txt','w')
+probefile=open('probesNEW.txt', 'w')
 
 #defines which columns are to go in each output file. For samples it is the 3rd header until the gene title header and they will be separated by '\t'
 genefields=['Gene ID', 'Gene symbol', 'Gene title']
@@ -60,6 +60,8 @@ for line in fh.readlines():
       if line[0]=='!':
          continue
       row=line.strip().split('\t')
+      if row[colnames['Gene ID']]=='':
+          continue
       genefile.write(buildrow(row, genefields))
       probefile.write(buildrow(row, probefields))
       expressionfile.write(build_expression(row, samples))	

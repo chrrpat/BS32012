@@ -6,26 +6,26 @@ genedes varchar(255)
 	
 describe gene;
 
-LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/genes2.txt' INTO TABLE gene 
-IGNORE 1 LINES
+LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/genesNEW.txt' INTO TABLE gene 
 (geneid, genename, genedes);
 
 CREATE TABLE probes (
-gene varchar(255) not null,
-FOREIGN KEY (gene) REFERENCES gene(geneid),
-ID_ref integer not null
+ID_ref integer not null primary key,
+geneid varchar(255) not null,
+FOREIGN KEY (geneid) REFERENCES gene(geneid)
 );
 
-LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/probes2.txt' INTO TABLE probes  (@acc, ID_REF,gene) ;
+LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/probesNEW.txt' INTO TABLE probes  ( ID_ref,geneid) ;
 	
 
 CREATE TABLE expression (
-sampleid varchar(30) not null,
+sampleid varchar(50) not null,
 ID_ref integer not null,
 FOREIGN KEY (ID_ref) REFERENCES probes(ID_ref),
-expression real not null
+expression float not null
 );
 
-LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/expression.txt' INTO TABLE expression  (@acc, expression,ID_ref) ;
+
+LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/expressionNEW.txt' INTO TABLE expression  ( sampleid,ID_ref,expression) ;
 
 
