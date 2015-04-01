@@ -57,6 +57,11 @@ class Gene():
         db=DBHandler()
         cursor=db.cursor()
         expressionsql='SELECT expression FROM expression WHERE sampleid=%s and ID_ref=%s'
-        cursor.execute(expressionsql, (sampleid,))
+        cursor.execute(expressionsql, (sampleid,)) #DMAM Your query has two placeholders, one each for sampleid and ID_ref. 
+        #you have only the sample id in the list of values.  
         for result in cursor.fetchone():
              self.expressionvalue =result[0]
+        #DMAM This will return the expression value for the first probe in the list. 
+        # A gene may have more than one probe associated with it. 
+        #It retrieves the value(s) from the database and stores them in an instance variable. 
+        #This is fine but will be overwritten with the next call on a different sampleid for the same gene
