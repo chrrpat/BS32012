@@ -10,7 +10,7 @@ In practical terms, the aim of the project is to extract data from a Gene Expres
 
 Here each file or folder is described. If applicable, the use of the file will be explained. 
 
-*README.md* : This is the file you are currently reading. It contains information about the respository and the files inside.
+**README.md** : This is the file you are currently reading. It contains information about the respository and the files inside.
 
 *Project* : This contains the important files for the the project. These files include the parser script, and table building scripts.
 
