@@ -12,9 +12,9 @@ Here each file or folder is described. If applicable, the use of the file will b
 
 **README.md** : This is the file you are currently reading. It contains information about the respository and the files inside.
 
-*Project* : This contains the important files for the the project. These files include the parser script, and table building scripts.
+**Project** : This contains the important files for the the project. These files include the parser script, and table building scripts.
 
-*Misc* : This contains extra files that might be useful to see how the scripts developed. These are not necessary for use of the files in the Project folder.
+**Misc** : This contains extra files that might be useful to see how the scripts developed. These are not necessary for use of the files in the Project folder.
 
 
 
