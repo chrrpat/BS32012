@@ -8,3 +8,4 @@ Here is a description of the files found in this folder, and if necessary, how t
 
 **expression.txt**, **probes2.txt**, **genes2.txt** : All three of these files are outputs from previous versions of the parser. They either had indentation issues or missing values which made them not suitable for use in the production of the database. They can be viewed here to see how output of the parser evolved. 
 
+**parsercont.py** : This is an early, not usable version of the parser. Again it is only present to show the development of the script. 
