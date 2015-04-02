@@ -1,1 +1,0 @@
-cat genes.txt | awk -F "\t" '{if ($2!=""){print $0}}' |wc -l
