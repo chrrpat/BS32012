@@ -21,8 +21,8 @@ Here each file or folder is described. If applicable, the use of the file will b
 
 ###Week 1 (01/03/15)
 - Opened GitHub account. 
-- Make practise repository and practised cloning, pushing, merging repositories. 
-- Familiarised with XMing, using Unix, and very basic Python. 
+- Made practise repository and practised cloning, pushing, merging repositories. 
+- Revised using XMing, Unix, and very basic Python. 
 
 ###Week 2 (08/03/15)
 - Virtual Machine operational on laptop for use off campus.
