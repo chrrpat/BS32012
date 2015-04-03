@@ -12,7 +12,7 @@ Here is a description of the files found in this folder, and if necessary, how t
 
 **expressionNEW.txt**, **genesNEW.txt**, **probesNEW.txt** : These are text files produced by the parser script. These are text files containing information in tabulated columns. These files can then be used to produce tables using MySQL script. Below the column headers for each of these three files are described.
 
-**expressionNEW.txt** : The three columns are sampleid, ID_ref, and expression. These are the number assigned to the sample. the number assigned to the probe and the expression value, respectively. 
+**expressionNEW.txt** : The three columns are sampleid, ID_ref, and expression. These are the number assigned to the sample, the number assigned to the probe and the expression value, respectively. 
 
 **genesNEW.txt** : The three columns are geneid, genename, and genedes. These are the number assigned to the gene, the name of the gene and a short description of the gene, respectively. 
 
