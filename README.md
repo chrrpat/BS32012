@@ -16,7 +16,23 @@ Here each file or folder is described. If applicable, the use of the file will b
 
 **Misc** : This contains extra files that might be useful to see how the scripts developed. These are not necessary for use of the files in the Project folder.
 
+##Work Diary
 
+
+###Week 1 (01/03/15)
+-Opened GitHub account. 
+-Make practise repository and practised cloning, pushing, merging repositories. 
+-Familiarised with XMing, using Unix, and very basic Python
+
+###Week 2 (08/03/15)
+-Virtual Machine operational on laptop for use off campus.
+-Given MySQL username and password
+-Made practise tables, linking through references.
+###Week 3 (15/03/15)
+
+###Week 4 (22/03/15)
+
+###Week 5 (29/03/15)
 
 
 
