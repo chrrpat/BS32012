@@ -5,6 +5,7 @@
 # This allows connection to a MySQL database server from Python
 import MySQLdb
 
+#Connect to database using the appropriate credentials
 
 class DBHandler():
     '''The static database connection - avoids overuse of resources'''
@@ -17,7 +18,7 @@ class DBHandler():
         if DBHandler.connection == None:
             DBHandler.connection = MySQLdb.connect(db=DBHandler.dbname, \
 user=DBHandler.dbuser, passwd=DBHandler.dbpassword)
-
+    # Preparing a cursor
     def cursor(self):
         return DBHandler.connection.cursor()
 
@@ -34,15 +35,14 @@ class Gene():
         db=DBHandler()
         cursor=db.cursor()
         sql='select genename,genedes from gene where geneid=%s'
+        #Executing the SQL query
         cursor.execute(sql,(geneid,))
-        #query database
-        #get result and populate the class fields.
+        #Fetches the single relevant row.
         result=cursor.fetchone()
         self.genename    =result[0]
         self.genedes=result[1]
-        #now fetch the probes..
+        #Fetching the probes
         probesql='select ID_ref from probes where geneid=%s'
-    #fill in the blanks yourself
         cursor.execute(probesql,(geneid,))
         #query database
         #get result and populate the class fields.
@@ -50,8 +50,12 @@ class Gene():
 
 
         for result in cursor.fetchall():
+            #Fetches all the relevant rows
               self.probelist.append(result[0])
+#Results in list of relevant probes
+
 
     def get_expression(self,experiment):
-        '''Retrieve expression values for a given experiment for this gene. This does not currently work.'''
+        '''Beginning of script to retrieve expression values for a given experiment for this gene. This does not currently work.
+        '''
         self.experiment=None
