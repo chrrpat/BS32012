@@ -7,6 +7,6 @@ fh = open("GSE27875_family.soft")
 line = fh.readline()
 while line:
   print line
-  line = fh.readine()
+  line = fh.readline()
 f.close()
 
