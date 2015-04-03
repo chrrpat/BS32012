@@ -29,7 +29,7 @@ class Gene():
 
     def __init__(self,geneid):
         '''Init method for Gene'''
-        ####self.gene_id=geneid
+        self.gene_id=geneid
         db=DBHandler()
         cursor=db.cursor()
         sql='select genename,genedes from gene where geneid=%s'
@@ -51,17 +51,17 @@ class Gene():
               self.probelist.append(result[0])
 
     def get_expression(self,sampleid):
-        '''Retrieve expression values for a given experiment for this gene'''
-        
+        '''If completed this would retrieve expression values for a given experiment for this gene
+        Does not currently work.
+        '''
         self.sampleid=sampleid
+        self.ID_ref=ID_ref
         db=DBHandler()
         cursor=db.cursor()
         expressionsql='SELECT expression FROM expression WHERE sampleid=%s and ID_ref=%s'
-        cursor.execute(expressionsql, (sampleid,)) #DMAM Your query has two placeholders, one each for sampleid and ID_ref. 
-        #you have only the sample id in the list of values.  
-        for result in cursor.fetchone():
-             self.expressionvalue =result[0]
-        #DMAM This will return the expression value for the first probe in the list. 
-        # A gene may have more than one probe associated with it. 
-        #It retrieves the value(s) from the database and stores them in an instance variable. 
-        #This is fine but will be overwritten with the next call on a different sampleid for the same gene
+        cursor.execute(expressionsql, (sampleid,) (ID_ref)) 
+        for result in cursor.fetchall():
+             self.expressionvalue.append(result[0])
+            #Attempted to implement suggestions by David Martin but still needs more work before functioning.
+            #Use of mygene.expressionvalue will always result in '[]'. 
+            
