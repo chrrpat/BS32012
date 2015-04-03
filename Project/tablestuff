@@ -1,13 +1,25 @@
+--This entire script used to produce the tables from the output files created by the parser, and samples.txt. 
+--First create the table to hold the information from  genesNEW.txt with approriate headers
+--geneid is a primary key is other tables will refer to it
+--All columns are varchar as they are a combination of text and numbers
+
 CREATE TABLE gene (
 geneid varchar(255) not null  primary key,
 genename varchar(255) not null,
 genedes varchar(255) 
 );
-	
+
+--This then shows if the table is built as expected
+
 describe gene;
 
+--The data from the text file is now loaded into the table, with the column headers organised so the data is entered into the correct column.
 LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/genesNEW.txt' INTO TABLE gene 
 (geneid, genename, genedes);
+
+--Next create the table to hold the information from  probesNEW.txt with approriate headers
+--ID_ref will be referenced by another table so is a primary key. It is also an integer as it exist as whole numbers only.
+--geneid references the column geneid found in the table gene so that the two match and link. 
 
 CREATE TABLE probes (
 ID_ref integer not null primary key,
@@ -15,8 +27,14 @@ geneid varchar(255) not null,
 FOREIGN KEY (geneid) REFERENCES gene(geneid)
 );
 
+--Data from probesNEW.txt loaded into the table, with appropriate column headers
+
 LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/probesNEW.txt' INTO TABLE probes  ( ID_ref,geneid) ;
 	
+--Next create the table to hold the information from  expressionNEW.txt with appropriate headers
+--sampleid will be referenced by another table so is a primary key
+--ID_ref references the column ID_ref found in the table probes so that the two match and link.
+--expression is a float value as it is not a whole number
 
 CREATE TABLE expression (
 sampleid varchar(50) not null primary key,
@@ -25,16 +43,22 @@ FOREIGN KEY (ID_ref) REFERENCES probes(ID_ref),
 expression float not null
 );
 
-
+--Data from expressionNEW.txt loaded into the table, with appropriate column headers
 
 LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/expressionNEW.txt' INTO TABLE expression  ( sampleid,ID_ref,expression) ;
+
+--Next create the table to hold the information from samples.txt with appropriate headers
+--sampleid references the column sampleid found in the table expression so that the two match and link.
+--subject and trimester can both contain numbers and text so are varchar.
+
 
 CREATE TABLE samples (
 sampleid varchar(50) not null,
 FOREIGN KEY (sampleid) REFERENCES expression(sampleid),
 subject varchar(4) not null,
-trimester varchar(12) not null
+trimester varchar(20) not null
 );
 
+--Data from samples.txt loaded into the table, with appropriate column headers
 
 LOAD DATA LOCAL INFILE '/homes/ctpaterson/Project/samples.txt' INTO TABLE samples ignore 1 lines (sampleid,subject,trimester) ;
