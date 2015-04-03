@@ -1,4 +1,5 @@
 # -*- coding: iso-8859-1 -*-
+#opens the raw GEO file, writes 4 text files which can then be used to put into SQL tables
 #My filled in parser template
 # step 1. open the data file
 
@@ -32,7 +33,11 @@ samples=header.split('\t')[2:int(colnames['Gene title'])]
 probefields=['ID_REF','Gene ID']
 
 def buildrow(row, fields):
-   '''Docstring'''
+   '''This creates a tab separated list of values, according to the columns listed in fields
+   row: a list of values
+   fields: a list of columns. Only the values in row corresponding to the columns in fields are output
+   returns: A string that is a tab separated list of values terminated with a newline
+   '''
    newrow=[]
    for f in fields:
       newrow.append(row[int(colnames[f])])
@@ -41,7 +46,11 @@ def buildrow(row, fields):
 
 #creates the rows for the expression file, is slightly different because for each probe and experiment there are several gene expression values.
 def build_expression(row, samples):
-   '''Docstring'''
+   '''Builds tab separated rows for expression data. For each of the sameples listed
+   it generates a line with the probe id, sample id and expression value.
+   row: a list of values
+   samples: a list of column headings corresponding to the samples
+   '''
    exprrows=[]
    for s in samples:
       newrow=[s,]
@@ -50,7 +59,7 @@ def build_expression(row, samples):
       exprrows.append("\t".join(newrow))
    return "\n".join(exprrows)+"\n"
 
-#initialise a counter to count how many probe rows were processed.    
+#Counter which counts how many probe rows were processed.    
 #writes the data to the files 
 
 
@@ -70,11 +79,14 @@ for line in fh.readlines():
       pass
 
 
+#closing the written files
 
 
 genefile.close()
 probefile.close()
 expressionfile.close()
+
+#prints a message to show how many rows have been processed
 
 print '%s rows processed'%rows
 
