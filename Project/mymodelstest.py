@@ -1,8 +1,9 @@
 # -*- coding: iso-8859-1 -*-
 '''Classes to represent our gene expression objects'''
-
+#This is a script for a database interacting class to represent a gene. more can be added to the script for further queries
+# This allows connection to a MySQL database server from Python
 import MySQLdb
-#Incomplete outline script for a database interacting class to represent a gene.
+
 
 class DBHandler():
     '''The static database connection - avoids overuse of resources'''
@@ -15,7 +16,7 @@ class DBHandler():
         if DBHandler.connection == None:
             DBHandler.connection = MySQLdb.connect(db=DBHandler.dbname, \
 user=DBHandler.dbuser, passwd=DBHandler.dbpassword)
-
+    # Preparing a cursor
     def cursor(self):
         return DBHandler.connection.cursor()
 
@@ -25,7 +26,10 @@ class Gene():
     gene_name=''
     gene_id=''
     probelist=[]
-    expressionvalue=''
+    sample_id=''
+    ID__ref=''
+    expressionvalue=[]
+    
 
     def __init__(self,geneid):
         '''Init method for Gene'''
@@ -33,29 +37,31 @@ class Gene():
         db=DBHandler()
         cursor=db.cursor()
         sql='select genename,genedes from gene where geneid=%s'
+        #Executing the SQL query
         cursor.execute(sql,(geneid,))
-        #query database
-        #get result and populate the class fields.
+        #Fetches the single relevant row
         result=cursor.fetchone()
         self.genename    =result[0]
         self.genedes=result[1]
-        #now fetch the probes..
+        #Fetching the probes
         probesql='select ID_ref from probes where geneid=%s'
+        #Executing the SQL query
         cursor.execute(probesql,(geneid,))
-        #query database
-        #get result and populate the class fields.
+        
+        #Get result and populate the class fields.
        
 
 
         for result in cursor.fetchall():
               self.probelist.append(result[0])
+              #Results in list of relevant probes
 
     def get_expression(self,sampleid):
         '''If completed this would retrieve expression values for a given experiment for this gene
         Does not currently work.
         '''
-        self.sampleid=sampleid
-        self.ID_ref=ID_ref
+        self.sample_id=sampleid
+        self.ID__ref=ID_ref
         db=DBHandler()
         cursor=db.cursor()
         expressionsql='SELECT expression FROM expression WHERE sampleid=%s and ID_ref=%s'
