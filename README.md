@@ -46,7 +46,9 @@ Here each file or folder is described. If applicable, the use of the file will b
 - Manually produce samples.txt and added a samples table to the MySQL script.
 - Continued working on mymodels.py.
   - Model now succesfully answers basic genename, genedes queries.
-  - Produced mymodelstest.py to try writing additional queries.
+- Produced mymodelstest.py to try writing additional queries.
+  - Attempted to implement query to retrieve expression values with a given sampleid and ID_ref. 
+    - Does not work at the moment.
 - Structured and tidied repository so it will be more useful to other users.
 
 
