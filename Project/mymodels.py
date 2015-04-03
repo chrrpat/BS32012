@@ -1,8 +1,10 @@
 # -*- coding: iso-8859-1 -*-
 '''Classes to represent our gene expression objects'''
 
+#This is a script for a database interacting class to represent a gene. more can be added to the script for further queries
+# This allows connection to a MySQL database server from Python
 import MySQLdb
-#Incomplete outline script for a database interacting class to represent a gene.
+
 
 class DBHandler():
     '''The static database connection - avoids overuse of resources'''
@@ -51,5 +53,5 @@ class Gene():
               self.probelist.append(result[0])
 
     def get_expression(self,experiment):
-        '''Retrieve expression values for a given experiment for this gene'''
+        '''Retrieve expression values for a given experiment for this gene. This does not currently work.'''
         self.experiment=None
