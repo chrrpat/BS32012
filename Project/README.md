@@ -25,5 +25,5 @@ Here is a description of the files found in this folder, and if necessary, how t
 
 **mymodels.py** : This script allows the user to provide a geneid, and use this to query the database for the corresponding gene name, description and associated probes. Further queries can be added with more code. This A template for this file was provided by David Martin which I completed. 
 
-**mymodelstest.py** : This is an altered version of the mymodels.py file. It has an attempt to add the ability to find the expression values with a given sampleID and ID_ref.
+**mymodelstest.py** : This is an altered version of the mymodels.py file. It has an attempt to add the ability to find the expression values with a given sampleid and ID_ref.
 
