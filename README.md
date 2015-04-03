@@ -20,18 +20,22 @@ Here each file or folder is described. If applicable, the use of the file will b
 
 
 ###Week 1 (01/03/15)
--Opened GitHub account. 
--Make practise repository and practised cloning, pushing, merging repositories. 
--Familiarised with XMing, using Unix, and very basic Python
+- Opened GitHub account. 
+- Make practise repository and practised cloning, pushing, merging repositories. 
+- Familiarised with XMing, using Unix, and very basic Python. 
 
 ###Week 2 (08/03/15)
--Virtual Machine operational on laptop for use off campus.
--Given MySQL username and password
--Made practise tables, linking through references.
+- Virtual Machine operational on laptop for use off campus.
+- Given MySQL username and password.
+- Made practise tables, linking through references.
+- Downloaded a practise Gene Expression Omnibus file and transferred to virtual machine.
 ###Week 3 (15/03/15)
-
+-Downloaded a different GEO file to use 
+-Began completing parser and encountered some problems with the file.
+-Downloaded a different GEO file which had the appropriate layout.
+-Completed parser which correctly produces output files. 
 ###Week 4 (22/03/15)
-
+-Began producing real tables in MySQL to hold the output files from the parser
 ###Week 5 (29/03/15)
 
 
