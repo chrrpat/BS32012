@@ -41,6 +41,7 @@ Here each file or folder is described. If applicable, the use of the file will b
 - Given 'deleting gaps' code (found in Misc folder) to remove some of the problems with missing entries in the output files.
 - Revised python classes.
 - Began working on completing the models.py template, producing mymodels.py
+  - This uses Python code to connect to the database for queries. 
 
 ###Week 5 (29/03/15)
 - Manually produce samples.txt and added a samples table to the MySQL script.
