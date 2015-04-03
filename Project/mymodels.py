@@ -37,22 +37,23 @@ class Gene():
         sql='select genename,genedes from gene where geneid=%s'
         #Executing the SQL query
         cursor.execute(sql,(geneid,))
-        #Fetches the single relevant row.
+        #Fetches the single relevant row
         result=cursor.fetchone()
         self.genename    =result[0]
         self.genedes=result[1]
         #Fetching the probes
         probesql='select ID_ref from probes where geneid=%s'
+        #Executing the SQL query
         cursor.execute(probesql,(geneid,))
-        #query database
-        #get result and populate the class fields.
+
+        #Get result and populate the class fields.
        
 
 
         for result in cursor.fetchall():
             #Fetches all the relevant rows
               self.probelist.append(result[0])
-#Results in list of relevant probes
+             #Results in list of relevant probes
 
 
     def get_expression(self,experiment):
